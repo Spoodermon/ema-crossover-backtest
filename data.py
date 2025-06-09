@@ -27,7 +27,7 @@ def fetch_symbol_data(symbol: str, output_size: str="compact") -> pd.DataFrame:
     
     #otherwise pull fresh data
     url = "https://www.alphavantage.co/query"
-    params = { "function": "TIME_SERIES_DAILY_ADJUSTED",
+    params = { "function": "TIME_SERIES_DAILY",
                "symbol": symbol,
                "outputsize": output_size,
                "apikey": API_KEY,
@@ -49,8 +49,7 @@ def fetch_symbol_data(symbol: str, output_size: str="compact") -> pd.DataFrame:
         "2. high": "high",
         "3. low": "low",
         "4. close": "close",
-        "5. adjusted close": "adj_close",
-        "6. volume": "volume"
+        "5. volume": "volume"
     })
     df = df.astype(float)
     
